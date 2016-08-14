@@ -1,0 +1,214 @@
+{% extends "event/layout.html" %} 
+
+{% block subtitle %}Explore{% endblock %} 
+
+{% block page_header %}Explore{% endblock%} 
+
+{% block page_content %}
+<div class="row">
+    <div class="col-lg-12">
+        <form class="form-inline" data-bind="submit: searchResult">
+            <div class="form-group">
+                <label class="sr-only" for="inputStreet">Email address</label>
+                <input type="street" class="form-control" id="inputStreet" placeholder="Street">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="inputCity">Password</label>
+                <input type="city" class="form-control" id="inputCity" placeholder="City">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="inputState">Password</label>
+                <select type="State" class="form-control" id="inputState" placeholder="State">
+                    <option value="">Please select your state</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DC">District of Columbia</option>
+                    <option value="DE">Delaware</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="IA">Iowa</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MD">Maryland</option>
+                    <option value="ME">Maine</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MT">Montana</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NY">New York</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="PR">Puerto Rico</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VA">Virginia</option>
+                    <option value="VT">Vermont</option>
+                    <option value="WA">Washington</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary zillowit">Search</button>
+        </form>
+    </div>
+</div>
+<div class="row" style="margin-top: 3%">
+    <div class="col-lg-12" data-bind='foreach: { data: resultList}'>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Basic Info <button type="button" class="close" aria-label="Close" data-bind="click: $parent.removeResult"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="list-group" data-bind='foreach: { data: response.results.result, includeDestroyed: true }'>
+                    <div class="well">
+                        <h4 class="list-group-item-heading"><i class="fa fa-home fa-lg fa-fw" aria-hidden="true"></i> <span data-bind="text: address.street"></span>, <span data-bind="text: address.city"></span> <span data-bind="text: address.state"></span></h4>
+                        <ul class="list-unstyled" style="margin-top: 10px">
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <div>
+                                    <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
+                                    <span data-bind="text: address.latitude"></span> | <span data-bind="text: address.longitude"></span>
+                                </div>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <a data-bind="attr: { href: links.homedetails }">
+                                    <div>
+                                        <i class="fa fa-info fa-fw" aria-hidden="true"></i> Home details
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <a data-bind="attr: { href: links.graphsanddata }">
+                                    <div>
+                                        <i class="fa fa-pie-chart fa-fw" aria-hidden="true"></i> Chart data
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <a data-bind="attr: { href: links.mapthishome }">
+                                    <div>
+                                        <i class="fa fa-map-o fa-fw" aria-hidden="true"></i> Map this home
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <a data-bind="attr: { href: links.comparables }">
+                                    <div>
+                                        <i class="fa fa-balance-scale fa-fw" aria-hidden="true"></i> Similar sales
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <div>
+                                    <strong>Zestimate: </strong>$<span data-bind="text: zestimate.amount['#text']"></span>
+                                </div>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <div>
+                                    <strong>Last Updated Date: </strong><span data-bind="text: zestimate['last-updated']"></span>
+                                </div>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <div>
+                                    <strong>30 Days Value Change: </strong><i class="fa fa-arrow-down" aria-hidden="true" style="color: red" data-bind="visible: zestimate.oneWeekChange['@deprecated']() == 'true'"></i><i class="fa fa-arrow-up" aria-hidden="true" style="color: green" data-bind="visible: zestimate.oneWeekChange['@deprecated']() != 'true'"></i><span data-bind="text: zestimate.valueChange['#text']"></span>
+                                </div>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <div>
+                                    <strong>Price Range: </strong>$<span data-bind="text: zestimate.valuationRange.low['#text']"></span> - $<span data-bind="text: zestimate.valuationRange.high['#text']"></span>
+                                </div>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <div>
+                                    <strong>Region Name: </strong><span data-bind="text: localRealEstate.region['@name']"></span>
+                                </div>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <div>
+                                    <strong>Region Type: </strong><span data-bind="text: localRealEstate.region['@type']"></span>
+                                </div>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <div>
+                                    <strong>Zillow Index Value: </strong> <span data-bind="text: localRealEstate.region.zindexValue"></span>
+                                </div>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <a data-bind="attr: { href: localRealEstate.region.links.overview }">
+                                    <div>
+                                        <i class="fa fa-building fa-fw" aria-hidden="true"></i> Region overview
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <a data-bind="attr: { href: localRealEstate.region.links.forSaleByOwner }">
+                                    <div>
+                                        <i class="fa fa-building fa-fw" aria-hidden="true"></i> For Sale by Owner homes
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px; margin-left: 10px">
+                                <a data-bind="attr: { href: localRealEstate.region.links.forSale }">
+                                    <div>
+                                        <i class="fa fa-building fa-fw" aria-hidden="true"></i> For sale homes
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-6 -->
+</div>
+{% endblock %} 
+
+{% block page_modal %}
+<!-- Error Modal -->
+<div class="modal fade rounded" id="ErrorModal" tabindex="-1" role="dialog" aria-labelledby="ErrorModal">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" style="margin-top: 25%">
+            <div class="modal-header" style="background-color: #f13833">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" style="text-align: center;">Oops...</h4>
+            </div>
+            <div class="modal-body" style="background-color: #f6f9fc">
+                <span data-bind="text: errorMessage"></span>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- End Error Modal  -->
+{% endblock %}

@@ -1,0 +1,39 @@
+{% macro render_field(field) %}
+    <div class="form-group has-feedback {% if field.errors %}has-error{% endif %}" >
+        {{ field.label(class="control-label", style="display: none;") }}
+        <div class="col-sm-offset-2 col-sm-10">
+        {{ field(class="form-control", **kwargs) }}
+        {% if field.errors %}
+            {% for error in field.errors %}
+            <span id="{{ field.id }}" class="help-block">{{ error }}</span>
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span id="{{ field.id }}" class="sr-only">(error)</span>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro render_login_field(field) %}
+    <div class="form-group has-feedback {% if field.errors %}has-error{% endif %}" >
+        {{ field.label(class="control-label", style="display: none;") }}
+        <div>
+        {{ field(class="form-control", **kwargs) }}
+        {% if field.errors %}
+            {% for error in field.errors %}
+            <span id="{{ field.id }}" class="help-block">{{ error }}</span>
+            <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+            <span id="{{ field.id }}" class="sr-only">(error)</span>
+            {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro render_checkbox_field(field) -%}
+    <div class="checkbox">
+        <label>
+            {{ field(type='checkbox', **kwargs) }} {{ field.label.text}}
+        </label>
+    </div>
+{%- endmacro %}

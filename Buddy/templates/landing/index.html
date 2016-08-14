@@ -1,0 +1,48 @@
+{% extends "landing/layout.html" %}
+{% from 'macros.html' import render_field %}
+
+<!-- Put your page content here! -->
+{% block login_section %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                    <h1 style="color: white;">Get started now</h1>
+            </div>
+            <div class="col-sm-5 col-sm-offset-3">
+                <form class="form-horizontal" action="{{ url_for('landing.register') }}" method="POST">
+                    {{ registerForm.hidden_tag() }}
+                    {% for field in registerForm %}
+                        {{ render_field(field, placeholder=field.label.text, id=field.id) }}
+                    {% endfor %}
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> I Agree to <a href="" style="color: white">Zillow Terms</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary btn-block">Sign up for free</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block about_section %}
+{% endblock %}
+
+{% block service_section %}
+{% endblock %}
+
+{% block contact_section %}
+{% endblock %}
+
+{% block copyright %}
+Copyright &copy;    Zillow 2016
+{% endblock%}

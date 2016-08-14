@@ -1,0 +1,18 @@
+{
+  "name": "Buddy",
+  "authors": [
+    "Jason-Yuan <yuanbo0109@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

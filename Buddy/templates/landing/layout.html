@@ -1,0 +1,191 @@
+{% from 'macros.html' import render_login_field %} {% from 'macros.html' import render_checkbox_field %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}Zillow{% endblock %}</title>
+    <!-- Tab Icon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'img/favicon.png') }}">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename = 'css/scrolling-nav.css') }}" rel="stylesheet">
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'bower_components/font-awesome/css/font-awesome.min.css') }}" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: rgba(0,0,0,0.46); border-color: rgba(0,0,0,0.46);">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div>
+                    <a class="navbar-brand page-scroll pull-left" href="#page-top" style="font-size: 3em">Zillow</a>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" data-toggle="modal" data-target="#LoginModal">Sign in</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- Services Section -->
+    <section id="services" class="services-section" style="background: url('../static/img/start.jpg') no-repeat center center; background-size: cover">
+        <div class="container">
+            <!-- Flash messages -->
+            {% with messages = get_flashed_messages(with_categories=True) %} {% if messages %} {% for category, message in messages %}
+            <div class="alert {{ category }} alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+            </div>
+            {% endfor %} {% endif %} {% endwith %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="color: white; font-size: 3.5em; margin-top: 8%">Welcome to Zillow!</h1>
+                    <a href="#signup" class="btn btn-default page-scroll" style="margin-top: 5%;">Start</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="about-section" style="background: url('../static/img/dark_background.jpg') no-repeat center center; background-size: cover">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="color: white;">About</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Login Section -->
+    <section id="signup" class="signup-section" style="background: url('../static/img/landing.jpg') no-repeat center center; background-size: cover">
+        {% block login_section %}{% endblock %}
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section" style="background: url('../static/img/dark_background.jpg') no-repeat center center; background-size: cover">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="color: white;">Contact</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row" style="margin-bottom: 25px">
+                <div id='ww-widget-wwrated-2013'>
+                    <a class="ww-top" target="_blank" title="Weddings, Wedding, Wedding Venues" href="http://www.weddingwire.com"></a>
+                    <a class="ww-bottom" target="_blank" title="Maggies Piano Studio Reviews, Los Angeles County  Ceremony Music" href="http://www.weddingwire.com/reviews/maggies-piano-studio-los-angeles/92e7a779ce441805.html"></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-xs-5 col-md-offset-4 col-xs-offset-4">
+                    <ul class="list-inline social-buttons text-center">
+                        <li><a href="https://twitter.com/yuanbo0109"><i class="fa fa-2x fa-twitter"></i></a>
+                        </li>
+                        <li><a href="https://instagram.com/jason_byuan/"><i class="fa fa-2x fa-instagram"></i></a>
+                        </li>
+                        <li><a href="https://www.linkedin.com/in/boyuan1"><i class="fa fa-2x fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center">
+                    <span class="copyright">{% block copyright %}{% endblock%}</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Login Modal -->
+    <div class="modal fade rounded" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" style="margin-top: 25%">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" style="text-align: center;">Sign in</h4>
+                </div>
+                <div class="modal-body" style="background-color: #f6f9fc">
+                    <form action="{{ url_for('landing.login') }}" method="POST">
+                        {{ loginForm.hidden_tag() }} 
+                        {{ render_login_field(loginForm.email, placeholder=loginForm.email.label.text, id=loginForm.email.id) }} 
+                        {{ render_login_field(loginForm.password, placeholder=loginForm.password.label.text, id=loginForm.password.id) }} {{ render_checkbox_field(loginForm.remember_me)}}
+                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                    </form>
+                </div>
+                <div class="modal-footer" style="text-align: left;">
+                    <a href="#">Forgot Password?</a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <!-- End Login Modal  -->
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename = 'bower_components/jquery/dist/jquery.js') }}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static', filename = 'bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <!-- Scrolling Nav JavaScript -->
+    <script src="{{ url_for('static', filename = 'js/jquery.easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/scrolling-nav.js') }}"></script>
+    <!-- Modal -->
+    <script type="text/javascript">
+    var formErrors = {% if loginForm.errors %}true{% else %} false {% endif %};
+
+    $(document).ready(function() {
+        if (formErrors) {
+            $('#LoginModal').modal('show');
+        }
+    });
+
+    // window.setTimeout(function() {
+    //     $(".alert").fadeTo(500, 0).slideUp(500, function() {
+    //         $(this).remove();
+    //     });
+    // }, 4000);
+    </script>
+</body>
+
+</html>
