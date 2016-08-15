@@ -5,7 +5,7 @@ Live site: http://boyuan-zillow.herokuapp.com/
 ![Zillow Web App](http://i781.photobucket.com/albums/yy93/Jason__Yuan/fdsafsdfa_zps5ywakm12.gif)
 
 # Log-in Credentials
-* **username**: test@zillowcom
+* **username**: test@zillow.com
 * **password**: password
 
 # Techbox
