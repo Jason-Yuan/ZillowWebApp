@@ -136,7 +136,7 @@
                             </li>
                             <li style="margin-top: 10px; margin-left: 10px">
                                 <div>
-                                    <strong>30 Days Value Change: </strong><i class="fa fa-arrow-down" aria-hidden="true" style="color: red" data-bind="visible: zestimate.oneWeekChange['@deprecated']() == 'true'"></i><i class="fa fa-arrow-up" aria-hidden="true" style="color: green" data-bind="visible: zestimate.oneWeekChange['@deprecated']() != 'true'"></i><span data-bind="text: zestimate.valueChange['#text']"></span>
+                                    <strong>30 Days Value Change: </strong><i class="fa fa-arrow-down" aria-hidden="true" style="color: red" data-bind="visible: zestimate.valueChange['#text']() < 0"></i><i class="fa fa-arrow-up" aria-hidden="true" style="color: green" data-bind="visible: zestimate.valueChange['#text']() > 0"></i> <span data-bind="text: zestimate.valueChange['#text']"></span>
                                 </div>
                             </li>
                             <li style="margin-top: 10px; margin-left: 10px">
