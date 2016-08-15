@@ -5,19 +5,19 @@ Live site: http://boyuan-zillow.herokuapp.com/
 ![Zillow Web App](http://i781.photobucket.com/albums/yy93/Jason__Yuan/fdsafsdfa_zps5ywakm12.gif)
 
 # Log-in Credentials
-**username**: test@zillowcom
-**password**: password
+* **username**: test@zillowcom
+* **password**: password
 
 # Techbox
-**Languages & Frameworks**: Python, Flask, KnockoutJS
-**Design Pattern**: 
-* Backend: MTV (similar to MVC)
-* Frontend: MVVM
+* **Languages & Frameworks**: Python, Flask, KnockoutJS
+* **Design Pattern**: 
+ * Backend: MTV (similar to MVC)
+ * Frontend: MVVM
 
 # How To Use The App
-**Step 1**: Log in to the app using credentials above
-**Step 2**: Go to "Explore" page
-**Step 3**: Fill in the address and click "Search"
+* **Step 1**: Log in to the app using credentials above
+* **Step 2**: Go to "Explore" page
+* **Step 3**: Fill in the address and click "Search"
 
 # Note:
  * Each time search results will be put into the Basic Info Panel.
