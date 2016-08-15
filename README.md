@@ -1,4 +1,4 @@
-This is a small web app using Zillow **GerSearchResults** API to get property information of any address the user put in. 
+This is a small web app using Zillow **GetSearchResults** API to get property information of any address the user put in. 
 
 Live site: http://boyuan-zillow.herokuapp.com/
 
